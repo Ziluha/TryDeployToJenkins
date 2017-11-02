@@ -12,18 +12,10 @@ namespace WebDriverAPIActions.TestCases
     [TestFixture]
     public class DragAndDropTest : BaseTest
     {
-        BrowserFactory browserFactory = BrowserFactory.getInstance();
-
-        [SetUp]
-        public void Init()
-        {
-            driver = browserFactory.InitBrowser(Browser.Name.Firefox);
-            DriverConfiguration.LoadApp(driver, ConfigurationManager.AppSettings["Html5demosURL"]);
-        }
-
         [Test]
         public void DragAndDrop()
         {
+            DriverConfiguration.LoadApp(driver, ConfigurationManager.AppSettings["Html5demosURL"]);
             DragAndDropPage dragAndDropPage = new DragAndDropPage(driver);
             int cardsAtStart = dragAndDropPage.CountCards();
             dragAndDropPage.MoveCardToBin("one");

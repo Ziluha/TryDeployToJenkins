@@ -12,18 +12,10 @@ namespace WebDriverAPIActions.TestCases
     [TestFixture]
     public class MoveMouseTest : BaseTest
     {
-        BrowserFactory browserFactory = BrowserFactory.getInstance();
-
-        [SetUp]
-        public void Init()
-        {
-            driver = browserFactory.InitBrowser(Browser.Name.Chrome);
-            DriverConfiguration.LoadApp(driver, ConfigurationManager.AppSettings["EbayURL"]);
-        }
-
         [Test]
         public void MouseMove()
         {
+            DriverConfiguration.LoadApp(driver, ConfigurationManager.AppSettings["EbayURL"]);
             HomePage homePage = new HomePage(driver);
             homePage.HoverCat("Электроника");
             homePage.OpenSubCat("Мобильные телефоны");
