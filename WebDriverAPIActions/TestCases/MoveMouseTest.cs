@@ -19,7 +19,7 @@ namespace WebDriverAPIActions.TestCases
             HomePage homePage = new HomePage(driver);
             homePage.HoverCat("Электроника");
             homePage.OpenSubCat("Мобильные телефоны");
-            
+            //Chech git pooling
             SmartphonesPage smartphonesPage = new SmartphonesPage(driver);
             smartphonesPage.SelectSearchOption("Музыка");
             smartphonesPage.SetSearchText("Скрипка");
