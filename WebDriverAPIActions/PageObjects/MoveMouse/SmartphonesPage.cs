@@ -4,6 +4,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 
 namespace WebDriverAPIActions.PageObjects.MoveMouse
 {
@@ -27,8 +28,8 @@ namespace WebDriverAPIActions.PageObjects.MoveMouse
         [FindsBy(How = How.Id, Using = "gh-btn")]
         private IWebElement SearchSubmitButton { get; set; }
 
-        [FindsBy(How = How.ClassName, Using = "rcnt")]
-        private IWebElement ResultCount { get; set; }
+        [FindsBy(How = How.Id, Using = "ListViewInner")]
+        private IList<IWebElement> ResultList { get; set; }
 
         private string GetPageMainTitle()
         {
@@ -45,8 +46,7 @@ namespace WebDriverAPIActions.PageObjects.MoveMouse
         
         public void SelectSearchOption(string optionPart)
         {
-            action = new Actions(driver);
-            action.Click(CathegorySelect).Perform();
+            CathegorySelect.Click();
             IWebElement option = CathegorySelect.FindElement(By.XPath(String.Format(optionName, optionPart)));
             option.Click();
         }
@@ -58,13 +58,12 @@ namespace WebDriverAPIActions.PageObjects.MoveMouse
 
         public void SubmitSearch()
         {
-            action = new Actions(driver);
-            action.Click(SearchSubmitButton).Perform();
+            SearchSubmitButton.Click();
         }
 
         public bool AreResultsFounded()
         {
-            if (ResultCount.Text == "0")
+            if (ResultList.Count == 0)
                 return false;
             return true;
         }
