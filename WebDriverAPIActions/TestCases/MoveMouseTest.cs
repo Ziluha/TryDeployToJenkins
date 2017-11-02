@@ -1,16 +1,17 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System.Configuration;
-using NUnit.Framework;
-using WebDriverAPIActions.WrapperFactory;
-using WebDriverAPIActions.PageObjects.MoveMouse;
 using WebDriverAPIActions.DriverSettings;
 using WebDriverAPIActions.Enums;
+using WebDriverAPIActions.PageObjects.MoveMouse;
+using WebDriverAPIActions.TestSettings;
+using WebDriverAPIActions.WrapperFactory;
 
 namespace WebDriverAPIActions.TestCases
 {
-    class MoveMouseTest
+    [TestFixture]
+    public class MoveMouseTest : BaseTest
     {
-        IWebDriver driver;
         BrowserFactory browserFactory = BrowserFactory.getInstance();
 
         [SetUp]
@@ -19,6 +20,7 @@ namespace WebDriverAPIActions.TestCases
             driver = browserFactory.InitBrowser(Browser.Name.Chrome);
             DriverConfiguration.LoadApp(driver, ConfigurationManager.AppSettings["EbayURL"]);
         }
+
         [Test]
         public void MouseMove()
         {
@@ -31,12 +33,6 @@ namespace WebDriverAPIActions.TestCases
             smartphonesPage.SetSearchText("Скрипка");
             smartphonesPage.SubmitSearch();
             Assert.True(smartphonesPage.AreResultsFounded(), "Result list is empty");
-        }
-
-        [TearDown]
-        public void EndTest()
-        {
-            browserFactory.CloseAllDrivers();
         }
     }
 }

@@ -41,23 +41,17 @@ namespace WebDriverAPIActions.WrapperFactory
             switch (browser)
             {
                 case Browser.Name.Firefox:
-                    if(Driver == null)
-                    {
-                        var service = FirefoxDriverService.CreateDefaultService(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["FirefoxDriverPath"]));
-                        driver = new FirefoxDriver(service);
+                    var service = FirefoxDriverService.CreateDefaultService(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["FirefoxDriverPath"]));
+                    driver = new FirefoxDriver(service);
+                    if (!drivers.Keys.Contains(Browser.Name.Firefox))
                         drivers.Add(Browser.Name.Firefox, Driver);
-                        return driver;
-                    }
-                    break;
+                    return driver;
 
                 case Browser.Name.Chrome:
-                    if(Driver == null)
-                    {
-                        driver = new ChromeDriver(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["ChromeDriverPath"]));
+                    driver = new ChromeDriver(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["ChromeDriverPath"]));
+                    if(!drivers.Keys.Contains(Browser.Name.Chrome))
                         drivers.Add(Browser.Name.Chrome, Driver);
-                        return driver;
-                    }
-                    break;
+                    return driver;
             }
             return driver;
         }
@@ -65,7 +59,10 @@ namespace WebDriverAPIActions.WrapperFactory
         public void CloseAllDrivers()
         {
             foreach (var key in drivers.Keys)
+            {
                 drivers[key].Quit();
+            }
+            drivers.Clear();
         }
     }
 }
