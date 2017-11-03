@@ -10,7 +10,7 @@ namespace WebDriverAPIActions.TestSettings
     {
         protected IWebDriver Driver { get; set; }
         private Browser.Name browserName;
-        private BrowserFactory browserFactory = BrowserFactory.getInstance();
+        private BrowserFactory browserFactory;
 
         public BaseTest(Browser.Name _browserName)
         {
