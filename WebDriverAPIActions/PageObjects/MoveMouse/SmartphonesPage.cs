@@ -10,7 +10,6 @@ namespace WebDriverAPIActions.PageObjects.MoveMouse
     class SmartphonesPage
     {
         private IWebDriver driver;
-        private WebDriverWait wait;
         private string expectedPageMainTitle = "Смартфоны";
         private string optionName = "//option[contains(text(),'{0}')]";
 
@@ -38,7 +37,6 @@ namespace WebDriverAPIActions.PageObjects.MoveMouse
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             Assert.AreEqual(expectedPageMainTitle, GetPageMainTitle(), "This isn't smartphones page");
         }
         

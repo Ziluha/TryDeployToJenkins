@@ -9,7 +9,6 @@ namespace WebDriverAPIActions.PageObjects.DragAndDrop
     class DragAndDropPage
     {
         private IWebDriver driver;
-        private WebDriverWait wait;
 
         [FindsBy(How = How.Id, Using = "bin")]
         private IWebElement Bin { get; set; }
@@ -24,7 +23,6 @@ namespace WebDriverAPIActions.PageObjects.DragAndDrop
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
-            wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(10));
         }
 
         public int CountCards()
