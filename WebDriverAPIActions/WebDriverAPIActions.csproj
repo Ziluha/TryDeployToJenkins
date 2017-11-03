@@ -67,7 +67,6 @@
     <Compile Include="TestCases\DragAndDropTest.cs" />
     <Compile Include="TestCases\MoveMouseTest.cs" />
     <Compile Include="TestSettings\BaseTest.cs" />
-    <Compile Include="TestSettings\Hooks.cs" />
     <Compile Include="WrapperFactory\BrowserFactory.cs" />
   </ItemGroup>
   <ItemGroup>

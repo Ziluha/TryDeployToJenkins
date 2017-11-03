@@ -11,7 +11,7 @@ namespace WebDriverAPIActions.TestCases
 {
     [TestFixture]
     [Parallelizable]
-    public class MoveMouseTest : Hooks
+    public class MoveMouseTest : BaseTest
     {
         public MoveMouseTest() : base(Browser.Name.Chrome) { }
         [Test]

@@ -11,9 +11,9 @@ namespace WebDriverAPIActions.TestCases
 {
     [TestFixture]
     [Parallelizable]
-    public class DragAndDropTest : Hooks
+    public class DragAndDropTest : BaseTest
     {
-        public DragAndDropTest() : base(Browser.Name.Firefox) { }
+        public DragAndDropTest() : base(Browser.Name.Chrome) { }
 
         [Test]
         public void DragAndDrop()
