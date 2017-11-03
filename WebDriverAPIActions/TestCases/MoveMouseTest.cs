@@ -10,17 +10,19 @@ using WebDriverAPIActions.WrapperFactory;
 namespace WebDriverAPIActions.TestCases
 {
     [TestFixture]
-    public class MoveMouseTest : BaseTest
+    [Parallelizable]
+    public class MoveMouseTest : Hooks
     {
+        public MoveMouseTest() : base(Browser.Name.Chrome) { }
         [Test]
         public void MouseMove()
         {
-            DriverConfiguration.LoadApp(driver, ConfigurationManager.AppSettings["EbayURL"]);
-            HomePage homePage = new HomePage(driver);
+            DriverConfiguration.LoadApp(Driver, ConfigurationManager.AppSettings["EbayURL"]);
+            HomePage homePage = new HomePage(Driver);
             homePage.HoverCat("Электроника");
             homePage.OpenSubCat("Мобильные телефоны");
-            //Chech git pooling
-            SmartphonesPage smartphonesPage = new SmartphonesPage(driver);
+
+            SmartphonesPage smartphonesPage = new SmartphonesPage(Driver);
             smartphonesPage.SelectSearchOption("Музыка");
             smartphonesPage.SetSearchText("Скрипка");
             smartphonesPage.SubmitSearch();

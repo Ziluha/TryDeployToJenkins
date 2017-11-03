@@ -11,7 +11,6 @@ namespace WebDriverAPIActions.PageObjects.MoveMouse
     class SmartphonesPage
     {
         private IWebDriver driver;
-        private Actions action;
         private WebDriverWait wait;
         private string expectedPageMainTitle = "Смартфоны";
         private string optionName = "//option[contains(text(),'{0}')]";
@@ -27,9 +26,9 @@ namespace WebDriverAPIActions.PageObjects.MoveMouse
 
         [FindsBy(How = How.Id, Using = "gh-btn")]
         private IWebElement SearchSubmitButton { get; set; }
-
-        [FindsBy(How = How.Id, Using = "ListViewInner")]
-        private IList<IWebElement> ResultList { get; set; }
+        
+        [FindsBy(How = How.CssSelector, Using = "ul#ListViewInner>li")]
+        public IList<IWebElement> ResultList { get; set; }
 
         private string GetPageMainTitle()
         {

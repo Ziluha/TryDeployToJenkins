@@ -10,13 +10,16 @@ using WebDriverAPIActions.WrapperFactory;
 namespace WebDriverAPIActions.TestCases
 {
     [TestFixture]
-    public class DragAndDropTest : BaseTest
+    [Parallelizable]
+    public class DragAndDropTest : Hooks
     {
+        public DragAndDropTest() : base(Browser.Name.Firefox) { }
+
         [Test]
         public void DragAndDrop()
         {
-            DriverConfiguration.LoadApp(driver, ConfigurationManager.AppSettings["Html5demosURL"]);
-            DragAndDropPage dragAndDropPage = new DragAndDropPage(driver);
+            DriverConfiguration.LoadApp(Driver, ConfigurationManager.AppSettings["Html5demosURL"]);
+            DragAndDropPage dragAndDropPage = new DragAndDropPage(Driver);
             int cardsAtStart = dragAndDropPage.CountCards();
             dragAndDropPage.MoveCardToBin("one");
             dragAndDropPage.MoveCardToBin("three");

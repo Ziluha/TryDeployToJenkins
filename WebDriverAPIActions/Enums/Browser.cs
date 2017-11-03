@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebDriverAPIActions.Enums
 {
-    class Browser
+    public class Browser
     {
         public enum Name { Chrome, Firefox }
     }
