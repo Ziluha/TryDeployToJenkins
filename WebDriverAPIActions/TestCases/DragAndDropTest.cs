@@ -1,11 +1,9 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
 using System.Configuration;
 using WebDriverAPIActions.DriverSettings;
 using WebDriverAPIActions.Enums;
 using WebDriverAPIActions.PageObjects.DragAndDrop;
 using WebDriverAPIActions.TestSettings;
-using WebDriverAPIActions.WrapperFactory;
 
 namespace WebDriverAPIActions.TestCases
 {
@@ -13,7 +11,7 @@ namespace WebDriverAPIActions.TestCases
     [Parallelizable]
     public class DragAndDropTest : BaseTest
     {
-        public DragAndDropTest() : base(Browser.Name.Chrome) { }
+        public DragAndDropTest() : base(Browser.Name.Firefox) { }
 
         [Test]
         public void DragAndDrop()

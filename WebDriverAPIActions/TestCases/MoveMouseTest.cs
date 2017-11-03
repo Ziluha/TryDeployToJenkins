@@ -1,11 +1,9 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
 using System.Configuration;
 using WebDriverAPIActions.DriverSettings;
 using WebDriverAPIActions.Enums;
 using WebDriverAPIActions.PageObjects.MoveMouse;
 using WebDriverAPIActions.TestSettings;
-using WebDriverAPIActions.WrapperFactory;
 
 namespace WebDriverAPIActions.TestCases
 {

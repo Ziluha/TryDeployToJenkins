@@ -3,7 +3,6 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
 
 namespace WebDriverAPIActions.PageObjects.MoveMouse
 {

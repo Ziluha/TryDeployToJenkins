@@ -1,10 +1,8 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.Generic;
 using System;
-using WebDriverAPIActions.JQueryHelper;
 
 namespace WebDriverAPIActions.PageObjects.DragAndDrop
 {
